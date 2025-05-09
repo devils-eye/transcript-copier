@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "YouTube Transcript Copier",
+  "version": "1.0",
+  "description": "Quickly copy YouTube video transcripts to clipboard",
+  "icons": {
+    "48": "icons/transcript-48.png",
+    "96": "icons/transcript-96.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "clipboardWrite",
+    "activeTab",
+    "tabs",
+    "*://*.youtube.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content_scripts/transcript.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-transcript-copier@example.com"
+    }
+  }
+}
